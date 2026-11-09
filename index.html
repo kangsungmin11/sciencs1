@@ -81,25 +81,27 @@ kbd{font:inherit;font-size:.72rem;padding:0 8px;border-radius:5px;border:1px sol
 input[type=search]{flex:1;box-sizing:border-box;font:inherit;font-size:.82rem;padding:7px 11px;border-radius:10px;border:1px solid var(--bd);background:var(--soft);color:var(--fg)}
 .del-all-cus{font-size:.74rem;padding:7px 10px;border-radius:10px;white-space:nowrap;color:var(--ac2);border-color:color-mix(in srgb,var(--ac2) 40%,transparent);background:color-mix(in srgb,var(--ac2) 8%,transparent)}
 .del-all-cus:hover{border-color:var(--ac2);background:color-mix(in srgb,var(--ac2) 16%,transparent)}
-#pal{max-height:calc(100vh - 300px);min-height:260px;overflow:auto;margin-top:10px;padding-right:2px}
+#pal{max-height:calc(100vh - 300px);min-height:260px;overflow:auto;margin-top:10px;padding:4px 2px}
 .empty-pal{border:1.5px dashed var(--bd);border-radius:14px;padding:34px 16px;text-align:center;color:var(--mu);background:var(--soft);display:flex;flex-direction:column;align-items:center;gap:6px}
 .empty-pal span{font-size:2rem}
 .empty-pal b{color:var(--fg);font-size:.9rem}
 .empty-pal small{font-size:.76rem;line-height:1.4}
-.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(135px,1fr));gap:8px}
-.snd{position:relative;display:flex;flex-direction:row;align-items:center;gap:8px;text-align:left;padding:9px 10px;border-radius:12px;background:var(--card);border:1px solid var(--bd);border-left:4px solid var(--c);cursor:grab;width:100%;box-sizing:border-box}
-.snd:active{cursor:grabbing;transform:scale(.96)}
-.snd.playing{box-shadow:0 0 0 2px var(--ac);background:var(--soft)}
-.snd i{font-style:normal;font-size:1.25rem;line-height:1;flex-shrink:0}
-.snd-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;padding-right:14px}
-.snd-top{display:flex;align-items:baseline;justify-content:space-between;gap:4px}
-.snd b{font-size:.8rem;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.snd small{color:var(--mu);font-size:.68rem;line-height:1.1;font-variant-numeric:tabular-nums}
-.snd:hover{background:var(--soft);border-color:var(--ac)}
-.del-snd{position:absolute;top:5px;right:5px;width:20px;height:20px;padding:0;border-radius:50%;font-size:.65rem;line-height:1;display:grid;place-items:center;background:var(--soft);color:var(--mu);border:1px solid var(--bd);z-index:2}
-.del-snd:hover{background:var(--ac2);color:#fff;border-color:var(--ac2);transform:scale(1.1)}
-.len-track{width:100%;height:3px;border-radius:2px;background:var(--bd);overflow:hidden;margin-top:2px}
-.len{display:block;height:100%;border-radius:2px;background:var(--c);opacity:.85}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:10px}
+.snd{position:relative;display:flex;flex-direction:row;align-items:center;gap:10px;text-align:left;padding:10px 11px;border-radius:14px;background:var(--card);border:1.5px solid var(--bd);box-shadow:0 2px 8px rgba(0,0,0,.03);cursor:grab;width:100%;box-sizing:border-box;transition:border-color .15s,background .15s,transform .12s,box-shadow .15s}
+.snd:hover{background:var(--soft);border-color:color-mix(in srgb,var(--c) 65%,var(--bd));transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.snd:active{cursor:grabbing;transform:scale(.98)}
+.snd.playing{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 8%,var(--card));box-shadow:0 0 0 2px color-mix(in srgb,var(--ac) 30%,transparent)}
+.snd i{font-style:normal;font-size:1.15rem;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 16%,var(--soft));border:1px solid color-mix(in srgb,var(--c) 30%,transparent);flex-shrink:0}
+.snd.playing i{background:color-mix(in srgb,var(--ac) 18%,var(--soft));border-color:color-mix(in srgb,var(--ac) 40%,transparent)}
+.snd-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.snd-top{display:flex;align-items:center;justify-content:space-between;gap:4px}
+.snd b{font-size:.82rem;font-weight:700;color:var(--fg);line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.snd small{color:var(--mu);font-size:.7rem;font-weight:500;line-height:1.1;font-variant-numeric:tabular-nums}
+.snd.playing small{color:var(--ac);font-weight:700}
+.del-snd{flex-shrink:0;width:24px;height:24px;padding:0;border-radius:8px;font-size:.72rem;line-height:1;display:grid;place-items:center;background:transparent;color:var(--mu);border:1px solid transparent;z-index:2;transition:.15s}
+.del-snd:hover{background:var(--ac2);color:#fff;border-color:var(--ac2);transform:scale(1.06)}
+.len-track{width:100%;height:4px;border-radius:999px;background:var(--bd);overflow:hidden;margin-top:2px}
+.len{display:block;height:100%;border-radius:999px;background:var(--c)}
 #ov{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;background:rgba(10,6,30,.62);backdrop-filter:blur(6px);padding:calc(20px + env(safe-area-inset-top,0px)) 20px calc(20px + env(safe-area-inset-bottom,0px))}
 .dlg{background:var(--card);border-radius:24px;padding:28px;max-width:420px;width:100%;text-align:center;box-shadow:var(--sh)}
 .dlg h3{margin:0 0 6px;font-size:1.25rem}.dlg p{margin:0;color:var(--mu)}
@@ -314,9 +316,9 @@ function drawPal(){
     if(!k||s.n.includes(k)){
       const playingCls=prevIdx===i?' playing':'';
       const d=dur(i);
-      const barPct=Math.max(10,Math.min(100,Math.round((d/5)*100)));
+      const barPct=Math.max(12,Math.min(100,Math.round((d/5)*100)));
       const hColor=s.hue||340;
-      cards.push(`<button class="snd${playingCls}" draggable="true" style="--c:hsl(${hColor} 75% 58%)" data-i="${i}" title="${s.n} (${d.toFixed(1)}초) · 클릭하거나 왼쪽 타임라인으로 끌어다 놓으세요"><span class="del-snd" data-del="${i}" title="이 소리 삭제" role="button" aria-label="${s.n} 삭제">✕</span><i>${prevIdx===i?'🔊':s.e}</i><span class="snd-body"><span class="snd-top"><b>${s.n}</b></span><small>${prevIdx===i?'재생 중...':d.toFixed(1)+'초'}</small><span class="len-track"><span class="len" style="width:${barPct}%"></span></span></span></button>`);
+      cards.push(`<button class="snd${playingCls}" draggable="true" style="--c:hsl(${hColor} 75% 58%)" data-i="${i}" title="${s.n} (${d.toFixed(1)}초) · 클릭하거나 왼쪽 타임라인으로 끌어다 놓으세요"><i>${prevIdx===i?'🔊':s.e}</i><span class="snd-body"><span class="snd-top"><b>${s.n}</b></span><small>${prevIdx===i?'재생 중... · '+d.toFixed(1)+'초':d.toFixed(1)+'초'}</small><span class="len-track"><span class="len" style="width:${barPct}%"></span></span></span><span class="del-snd" data-del="${i}" title="이 소리 삭제" role="button" aria-label="${s.n} 삭제">✕</span></button>`);
     }
   });
 
